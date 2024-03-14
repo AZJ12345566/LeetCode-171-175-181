@@ -1,0 +1,29 @@
+class Solution {
+/*
+171.Excel表列序号
+给你一个字符串 columnTitle ，表示 Excel 表格中的列名称。返回 该列名称对应的列序号 。
+*/
+  public int titleToNumber(String columnTitle) {
+    int number = 0;
+    int multiple = 1;
+    for(int i = columnTitle.length() - 1; i >= 0; i--) {
+      int k = columnTitle.charAt(i) - 'A' + 1;
+      number += k * multiple;
+      multiple *= 26;
+    }
+    return number;
+  }
+}
+/*
+175.组合两个表
+*/
+select FirstName, LastName, City, state
+from Person left join Address
+on Person.personId = Address.personId
+/*
+181.超过经理收入的员工
+*/
+select a.Name as 'Employee'
+from Employee as a join Employee as b
+on a.ManagerId = b.Id
+  and a.Salary > b.Salary
